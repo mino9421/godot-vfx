@@ -1,0 +1,234 @@
+[gd_scene load_steps=26 format=3 uid="uid://ie0iclojv2kj"]
+
+[ext_resource type="Script" path="res://vfx_activation.gd" id="1_4bymm"]
+[ext_resource type="Texture2D" uid="uid://dxrakxxawxtu4" path="res://asset/textures/Flare00.PNG" id="1_bhqxo"]
+[ext_resource type="Material" uid="uid://c2ypcl60ri5kp" path="res://asset/Materials/Mat_Flare00.tres" id="2_wpaq0"]
+[ext_resource type="Material" uid="uid://qhi61k8bpg63" path="res://asset/Materials/ProccessMaterial_gg.tres" id="2_xfcca"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfi7c"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_bhqxo")
+grow_amount = 15.921
+
+[sub_resource type="Curve" id="Curve_w2ba0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_h7wn2"]
+max_value = 5.0
+_data = [Vector2(0, 5), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_icvvr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_wr1ot"]
+curve_x = SubResource("Curve_w2ba0")
+curve_y = SubResource("Curve_h7wn2")
+curve_z = SubResource("Curve_icvvr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vi51p"]
+particle_flag_align_y = true
+emission_shape = 1
+emission_sphere_radius = 0.2
+spread = 180.0
+initial_velocity_min = 20.0
+initial_velocity_max = 25.0
+gravity = Vector3(0, -20, 0)
+scale_min = 0.15
+scale_max = 3.0
+scale_curve = SubResource("CurveXYZTexture_wr1ot")
+color = Color(0.996078, 0.592157, 0.470588, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_8e5b4"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_bfxj2"]
+
+[sub_resource type="Gradient" id="Gradient_5fj8t"]
+offsets = PackedFloat32Array(0.00535714, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8xq4l"]
+gradient = SubResource("Gradient_5fj8t")
+
+[sub_resource type="Curve" id="Curve_x2fxb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.26346, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_njn3o"]
+curve = SubResource("Curve_x2fxb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6my7o"]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 0.4
+spread = 180.0
+initial_velocity_min = 0.5
+initial_velocity_max = 2.0
+gravity = Vector3(0, -2, 0)
+scale_min = 3.0
+scale_max = 6.0
+scale_curve = SubResource("CurveTexture_njn3o")
+color = Color(0.996078, 0.592157, 0.470588, 1)
+color_ramp = SubResource("GradientTexture1D_8xq4l")
+
+[sub_resource type="QuadMesh" id="QuadMesh_xjxwu"]
+
+[sub_resource type="Curve" id="Curve_hgij4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.8318, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_537ep"]
+curve = SubResource("Curve_hgij4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wbekd"]
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 0.4
+spread = 180.0
+initial_velocity_min = 0.5
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+scale_min = 4.0
+scale_max = 6.0
+scale_curve = SubResource("CurveTexture_537ep")
+color = Color(0.133333, 0.133333, 0.133333, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_hyqqt"]
+size = Vector2(5, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tq7ht"]
+albedo_color = Color(0, 0.223529, 0.309804, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_amkb1"]
+material = SubResource("StandardMaterial3D_tq7ht")
+size = Vector3(10, 1, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k0rsl"]
+size = Vector3(10, 1, 10)
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_4bymm")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.348474, 0.937319, 0, -0.937319, 0.348474, -6.47777, 123.293, 36.7944)
+rotation_edit_mode = 1
+current = true
+
+[node name="vfx_explosion_orange" type="Node3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -98.861, 43.8533, -157.98)
+
+[node name="Sparks" type="GPUParticles3D" parent="vfx_explosion_orange"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0049, 0, 31.872)
+material_override = SubResource("StandardMaterial3D_vfi7c")
+emitting = false
+amount = 20
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_vi51p")
+draw_pass_1 = SubResource("QuadMesh_8e5b4")
+
+[node name="Flash" type="GPUParticles3D" parent="vfx_explosion_orange"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0049, 0, 31.872)
+material_override = ExtResource("2_wpaq0")
+emitting = false
+amount = 1
+lifetime = 0.1
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = ExtResource("2_xfcca")
+draw_pass_1 = SubResource("QuadMesh_bfxj2")
+
+[node name="Fire" type="GPUParticles3D" parent="vfx_explosion_orange"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0049, 0, 31.872)
+material_override = ExtResource("2_wpaq0")
+emitting = false
+amount = 13
+lifetime = 0.55
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_6my7o")
+draw_pass_1 = SubResource("QuadMesh_xjxwu")
+
+[node name="Smoke" type="GPUParticles3D" parent="vfx_explosion_orange"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0049, 0, 31.872)
+material_override = ExtResource("2_wpaq0")
+emitting = false
+amount = 10
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_wbekd")
+draw_pass_1 = SubResource("QuadMesh_hyqqt")
+
+[node name="VFX_Timer" type="Timer" parent="vfx_explosion_orange"]
+wait_time = 3.0
+autostart = true
+
+[node name="Walls" type="Node3D" parent="."]
+transform = Transform3D(-0.1, 0, -8.74228e-07, 0, 66.03, 0, 8.74228e-09, 0, -10, 49.5059, 32.9882, 0)
+
+[node name="East" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 1.11022e-16, 0, 1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/East"]
+mesh = SubResource("BoxMesh_amkb1")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/East"]
+shape = SubResource("BoxShape3D_k0rsl")
+
+[node name="West" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 1.11022e-16, 0, 1, 990.085, 0, 5.40012e-13)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/West"]
+mesh = SubResource("BoxMesh_amkb1")
+skeleton = NodePath("../../East")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/West"]
+shape = SubResource("BoxShape3D_k0rsl")
+
+[node name="South" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(97.465, 1.50996e-07, 1.74846e-09, -1.47168e-05, 1, 0, 1.70413e-05, 2.64009e-14, -0.01, 496.703, 0, 4.94954)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/South"]
+mesh = SubResource("BoxMesh_amkb1")
+skeleton = NodePath("../../East")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/South"]
+shape = SubResource("BoxShape3D_k0rsl")
+
+[node name="North" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(97.465, 1.50996e-07, 1.74846e-09, -1.47168e-05, 1, 0, 1.70413e-05, 2.64009e-14, -0.01, 497.357, 0.00406703, -4.93031)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/North"]
+mesh = SubResource("BoxMesh_amkb1")
+skeleton = NodePath("../../East")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/North"]
+shape = SubResource("BoxShape3D_k0rsl")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_amkb1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_k0rsl")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.999996, -0.0013374, -0.00249634, 0.00249634, 0.83253, 0.553974, 0.0013374, -0.553978, 0.83253, 2.698, 62.5305, 44.3319)
+rotation_edit_mode = 1
+light_angular_distance = 75.56
+
+[connection signal="timeout" from="vfx_explosion_orange/VFX_Timer" to="." method="_on_vfx_timer_timeout"]

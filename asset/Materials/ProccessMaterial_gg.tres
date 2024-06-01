@@ -1,0 +1,15 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://qhi61k8bpg63"]
+
+[sub_resource type="Curve" id="Curve_rwwyh"]
+_data = [Vector2(0, 1), 0.0, -0.791303, 0, 0, Vector2(1, 0), -1.05692, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_m1lvq"]
+curve = SubResource("Curve_rwwyh")
+
+[resource]
+gravity = Vector3(0, 0, 0)
+scale_min = 12.0
+scale_max = 12.0
+scale_curve = SubResource("CurveTexture_m1lvq")
+color = Color(0.996078, 0.592157, 0.470588, 1)

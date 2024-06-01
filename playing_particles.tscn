@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bc1o6mrah25k6"]
+
+[node name="PlayingParticles" type="Node3D"]
