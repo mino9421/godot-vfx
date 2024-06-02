@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7bhbiuj2arw7"]
+
+[ext_resource type="PackedScene" uid="uid://d1bt1x70732jo" path="res://Pokemons/Fire Starter/FireStarter_Unity@Idle.fbx" id="1_bf4bc"]
+[ext_resource type="ArrayMesh" uid="uid://bb2js7mn47wfp" path="res://Pokemons/Fire Starter/mesh/head_mesh.tres" id="2_krxep"]
+[ext_resource type="ArrayMesh" uid="uid://byvp6jahliepv" path="res://Pokemons/Fire Starter/mesh/wings_mesh.tres" id="3_hbwrr"]
+[ext_resource type="ArrayMesh" uid="uid://bovfxc3fw2rv0" path="res://Pokemons/Fire Starter/mesh/tail_mesh.tres" id="4_i6rwl"]
+
+[node name="Root Scene" instance=ExtResource("1_bf4bc")]
+
+[node name="Skeleton3D" parent="RootNode/Test/transform1" index="0"]
+bones/1/rotation = Quaternion(-4.51728e-33, 9.79378e-34, -0.211884, 0.977295)
+bones/2/position = Vector3(0.00649074, 0, 0)
+bones/2/rotation = Quaternion(-2.80882e-33, 1.20017e-32, 0.227879, 0.97369)
+bones/3/position = Vector3(0.00572029, 2.49173e-06, 0)
+bones/3/rotation = Quaternion(2.62846e-33, -5.78337e-33, 0.180604, 0.983556)
+
+[node name="head" type="MeshInstance3D" parent="RootNode/Test/transform1/Skeleton3D" index="0"]
+mesh = ExtResource("2_krxep")
+
+[node name="wing" type="MeshInstance3D" parent="RootNode/Test/transform1/Skeleton3D" index="1"]
+mesh = ExtResource("3_hbwrr")
+
+[node name="tail" type="MeshInstance3D" parent="RootNode/Test/transform1/Skeleton3D" index="2"]
+mesh = ExtResource("4_i6rwl")

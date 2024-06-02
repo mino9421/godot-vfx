@@ -12,7 +12,10 @@ func _ready():
 		$vfx_explosion_orange/Smoke
 	]
 	testing_particles = $vfx_explosion_orange/Sparks
-
+	
+	var anim_player = $Pokemons/FireMonIdle/AnimationPlayer
+	anim_player.play("FireStarter_Idle")
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
