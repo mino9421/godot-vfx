@@ -1,24 +1,10 @@
-[gd_scene load_steps=42 format=3 uid="uid://ie0iclojv2kj"]
+[gd_scene load_steps=28 format=3 uid="uid://ie0iclojv2kj"]
 
 [ext_resource type="Script" path="res://vfx_activation.gd" id="1_4bymm"]
 [ext_resource type="Texture2D" uid="uid://dxrakxxawxtu4" path="res://asset/textures/Flare00.PNG" id="1_bhqxo"]
 [ext_resource type="Material" uid="uid://c2ypcl60ri5kp" path="res://asset/Materials/Mat_Flare00.tres" id="2_wpaq0"]
 [ext_resource type="Material" uid="uid://qhi61k8bpg63" path="res://asset/Materials/ProccessMaterial_gg.tres" id="2_xfcca"]
 [ext_resource type="PackedScene" uid="uid://d2kbumcpbnd6p" path="res://Pokemons/Grass_Starter/GrassStarter_T_pose.fbx" id="6_0ngam"]
-[ext_resource type="PackedScene" uid="uid://b3a5o7hfv0o5q" path="res://Pokemons/Water Starter/WaterStarter_T-Pose.fbx" id="7_7ms3w"]
-[ext_resource type="PackedScene" uid="uid://b6w6gme1djyuu" path="res://Pokemons/Pokemons2/CyndaquilU/Cyndaquil_Unity.fbx" id="8_71x3t"]
-[ext_resource type="PackedScene" uid="uid://cc62vwi0cioby" path="res://Pokemons/Pokemons2/Magnemite/Magnemite_Unity.fbx" id="9_nlvcg"]
-[ext_resource type="PackedScene" uid="uid://c4j4domr4k6ef" path="res://Pokemons/Pokemons2/Mudkip/Mudkip_Unity.fbx" id="10_15cce"]
-[ext_resource type="PackedScene" uid="uid://dthbtv7fc6bsp" path="res://Pokemons/Pokemons2/Riolu/Riolu_Unity.fbx" id="11_wr0t6"]
-[ext_resource type="PackedScene" uid="uid://wx1aoy1sqsyf" path="res://Pokemons/Pokemons2/Rowlet/Rowlet_Unity.fbx" id="12_nrdkx"]
-[ext_resource type="PackedScene" uid="uid://dcnwgt0gwh1t2" path="res://Pokemons/Pokemons2/Turtwig/Turtwig_Unity.fbx" id="13_q80ss"]
-[ext_resource type="PackedScene" uid="uid://bwtyl0xfu5dah" path="res://Pokemons/NonStarter_Fakemons/Beepede/Beepede_Unity.fbx" id="14_oe8ih"]
-[ext_resource type="PackedScene" uid="uid://ch3sbl1qqsuvn" path="res://Pokemons/NonStarter_Fakemons/Birovo/Birovo_Unity.fbx" id="15_ixpx2"]
-[ext_resource type="PackedScene" uid="uid://cyx2xya6r85yf" path="res://Pokemons/NonStarter_Fakemons/Hararoo/Hararoo_Unity.fbx" id="16_0xnaq"]
-[ext_resource type="PackedScene" uid="uid://c8e41qjo08n6e" path="res://Pokemons/NonStarter_Fakemons/Owlcran/Owlcran_Unity.fbx" id="17_i7gqg"]
-[ext_resource type="PackedScene" uid="uid://dtieyfllb6f8x" path="res://Pokemons/NonStarter_Fakemons/Pedrita/Pedrita_Unity.fbx" id="18_r8xte"]
-[ext_resource type="PackedScene" uid="uid://dqy1avt11ge0h" path="res://Pokemons/NonStarter_Fakemons/Spidrill/Spidrill_Unity.fbx" id="19_xxuwq"]
-[ext_resource type="PackedScene" uid="uid://bja8qstqhsj78" path="res://Pokemons/Fakemon_Teen_Files/Fakemon_Teen_Idle.fbx" id="20_heyb7"]
 [ext_resource type="PackedScene" uid="uid://c7bhbiuj2arw7" path="res://scenes/sssss.tscn" id="22_tri31"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfi7c"]
@@ -258,61 +244,5 @@ transform = Transform3D(23.6627, -0.552788, -8.04806, 0.523346, 24.9939, -0.1779
 
 [node name="Root Scene2" parent="Pokemons" instance=ExtResource("6_0ngam")]
 transform = Transform3D(-1.99601, 0.0709089, -24.9201, -0.124726, 24.9996, 0.0811253, 24.9199, 0.130805, -1.99563, 132.168, 0, 320.885)
-
-[node name="Root Scene3" parent="Pokemons" instance=ExtResource("7_7ms3w")]
-transform = Transform3D(5.3799, 0, -24.4143, 0, 25, 0, 24.4143, 0, 5.3799, 127.238, 0, 289.907)
-visible = false
-
-[node name="Root Scene4" parent="Pokemons" instance=ExtResource("8_71x3t")]
-transform = Transform3D(20.8777, 0, -13.7522, 0, 25, 0, 13.7522, 0, 20.8777, 114.596, 0, 261.05)
-visible = false
-
-[node name="Root Scene5" parent="Pokemons" instance=ExtResource("9_nlvcg")]
-transform = Transform3D(-3.79964, 0, -24.7096, 0, 25, 0, 24.7096, 0, -3.79964, 132.791, 0, 347.783)
-visible = false
-
-[node name="Root Scene6" parent="Pokemons" instance=ExtResource("10_15cce")]
-transform = Transform3D(8.53574, 0, -23.4977, 0, 25, 0, 23.4977, 0, 8.53574, 78.6724, 0, 221.519)
-visible = false
-
-[node name="Root Scene7" parent="Pokemons" instance=ExtResource("11_wr0t6")]
-transform = Transform3D(-0.930918, 0, -24.9827, 0, 25, 0, 24.9827, 0, -0.930918, 121.377, 0, 376.586)
-visible = false
-
-[node name="Root Scene8" parent="Pokemons" instance=ExtResource("12_nrdkx")]
-transform = Transform3D(12.904, 0, -21.4123, 0, 25, 0, 21.4123, 0, 12.904, 75.5186, 0, 285.569)
-visible = false
-
-[node name="Root Scene9" parent="Pokemons" instance=ExtResource("13_q80ss")]
-transform = Transform3D(22.6442, 0, -10.5943, 0, 25, 0, 10.5943, 0, 22.6442, 75.3108, 0, 320.811)
-visible = false
-
-[node name="Root Scene10" parent="Pokemons" instance=ExtResource("14_oe8ih")]
-transform = Transform3D(20.664, 0, -14.0712, 0, 25, 0, 14.0712, 0, 20.664, 81.1522, 0, 346.174)
-visible = false
-
-[node name="Root Scene11" parent="Pokemons" instance=ExtResource("15_ixpx2")]
-transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 44.538, 0, 263.085)
-visible = false
-
-[node name="Root Scene12" parent="Pokemons" instance=ExtResource("16_0xnaq")]
-transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 50.8961, 0, 225.953)
-visible = false
-
-[node name="Root Scene13" parent="Pokemons" instance=ExtResource("17_i7gqg")]
-transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 42.832, 0, 298.787)
-visible = false
-
-[node name="Root Scene14" parent="Pokemons" instance=ExtResource("18_r8xte")]
-transform = Transform3D(24.9976, 0, -0.346, 0, 25, 0, 0.346, 0, 24.9976, 12.8393, 0, 261.736)
-visible = false
-
-[node name="Root Scene15" parent="Pokemons" instance=ExtResource("19_xxuwq")]
-transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 44.1276, 0, 335.763)
-visible = false
-
-[node name="Root Scene16" parent="Pokemons" instance=ExtResource("20_heyb7")]
-transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 15.602, 0, 216.65)
-visible = false
 
 [connection signal="timeout" from="vfx_explosion_orange/VFX_Timer" to="." method="_on_vfx_timer_timeout"]
