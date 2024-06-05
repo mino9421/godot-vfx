@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnsh3wdoikio7"]
+
+[ext_resource type="Texture2D" uid="uid://dcumoupol8obj" path="res://icon.svg" id="1_xt5om"]
+[ext_resource type="Script" path="res://scenes/Components/coin.gd" id="2_sut0l"]
+
+[node name="coin" type="Sprite3D"]
+texture = ExtResource("1_xt5om")
+script = ExtResource("2_sut0l")

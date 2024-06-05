@@ -5,7 +5,7 @@
 [ext_resource type="Material" uid="uid://c2ypcl60ri5kp" path="res://asset/Materials/Mat_Flare00.tres" id="2_wpaq0"]
 [ext_resource type="Material" uid="uid://qhi61k8bpg63" path="res://asset/Materials/ProccessMaterial_gg.tres" id="2_xfcca"]
 [ext_resource type="PackedScene" uid="uid://d2kbumcpbnd6p" path="res://Pokemons/Grass_Starter/GrassStarter_T_pose.fbx" id="6_0ngam"]
-[ext_resource type="PackedScene" uid="uid://c7bhbiuj2arw7" path="res://scenes/sssss.tscn" id="22_tri31"]
+[ext_resource type="PackedScene" uid="uid://c7bhbiuj2arw7" path="res://scenes/Components/sssss.tscn" id="22_tri31"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfi7c"]
 transparency = 1
@@ -103,6 +103,9 @@ color = Color(0.133333, 0.133333, 0.133333, 1)
 [sub_resource type="QuadMesh" id="QuadMesh_hyqqt"]
 size = Vector2(5, 5)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_k0rsl"]
+size = Vector3(10, 1, 10)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tq7ht"]
 albedo_color = Color(0, 0.223529, 0.309804, 1)
 
@@ -110,14 +113,11 @@ albedo_color = Color(0, 0.223529, 0.309804, 1)
 material = SubResource("StandardMaterial3D_tq7ht")
 size = Vector3(10, 1, 10)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_k0rsl"]
-size = Vector3(10, 1, 10)
-
 [node name="World" type="Node3D"]
 script = ExtResource("1_4bymm")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.211325, 0.367728, -0.905604, 0, 0.926529, 0.376224, 0.977416, -0.0795056, 0.195799, 71.967, 43.233, 277.021)
+transform = Transform3D(0.211325, 0.367728, -0.905604, 0, 0.926529, 0.376224, 0.977416, -0.0795056, 0.195799, 71.967, 5, 277.021)
 current = true
 
 [node name="vfx_explosion_orange" type="Node3D" parent="."]
@@ -175,57 +175,14 @@ draw_pass_1 = SubResource("QuadMesh_hyqqt")
 wait_time = 3.0
 autostart = true
 
-[node name="Walls" type="Node3D" parent="."]
-transform = Transform3D(-0.1, 0, -8.74228e-07, 0, 66.03, 0, 8.74228e-09, 0, -10, 49.5059, 32.9882, 0)
-
-[node name="East" type="StaticBody3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 1.11022e-16, 0, 1, 0, 0, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/East"]
-mesh = SubResource("BoxMesh_amkb1")
-skeleton = NodePath("../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/East"]
-shape = SubResource("BoxShape3D_k0rsl")
-
-[node name="West" type="StaticBody3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 1.11022e-16, 0, 1, 990.085, 0, 5.40012e-13)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/West"]
-mesh = SubResource("BoxMesh_amkb1")
-skeleton = NodePath("../../East")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/West"]
-shape = SubResource("BoxShape3D_k0rsl")
-
-[node name="South" type="StaticBody3D" parent="Walls"]
-transform = Transform3D(97.465, 1.50996e-07, 1.74846e-09, -1.47168e-05, 1, 0, 1.70413e-05, 2.64009e-14, -0.01, 496.703, 0, 4.94954)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/South"]
-mesh = SubResource("BoxMesh_amkb1")
-skeleton = NodePath("../../East")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/South"]
-shape = SubResource("BoxShape3D_k0rsl")
-
-[node name="North" type="StaticBody3D" parent="Walls"]
-transform = Transform3D(97.465, 1.50996e-07, 1.74846e-09, -1.47168e-05, 1, 0, 1.70413e-05, 2.64009e-14, -0.01, 497.357, 0.00406703, -4.93031)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/North"]
-mesh = SubResource("BoxMesh_amkb1")
-skeleton = NodePath("../../East")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/North"]
-shape = SubResource("BoxShape3D_k0rsl")
-
 [node name="Floor" type="StaticBody3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-mesh = SubResource("BoxMesh_amkb1")
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("BoxShape3D_k0rsl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_amkb1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.999996, -0.0013374, -0.00249634, 0.00249634, 0.83253, 0.553974, 0.0013374, -0.553978, 0.83253, 2.698, 62.5305, 44.3319)
@@ -233,16 +190,16 @@ rotation_edit_mode = 1
 light_angular_distance = 75.56
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.999996, -0.00133739, -0.00249634, 0.00255463, 0.80645, 0.591297, 0.00122238, -0.591301, 0.80645, 59.2439, 119.91, 332.941)
+transform = Transform3D(0.999996, -0.00133739, -0.00249634, 0.00255463, 0.80645, 0.591297, 0.00122238, -0.591301, 0.80645, 59.2439, 5, 332.941)
 light_energy = 1.775
 light_angular_distance = 42.02
 
 [node name="Pokemons" type="Node" parent="."]
 
 [node name="FireMonIdle" parent="Pokemons" instance=ExtResource("22_tri31")]
-transform = Transform3D(23.6627, -0.552788, -8.04806, 0.523346, 24.9939, -0.177998, 8.05003, 0, 23.6685, 115.177, 17.6186, 264.251)
+transform = Transform3D(23.6627, -0.552788, -8.04806, 0.523346, 24.9939, -0.177998, 8.05003, 0, 23.6685, 115.177, 5, 264.251)
 
-[node name="Root Scene2" parent="Pokemons" instance=ExtResource("6_0ngam")]
-transform = Transform3D(-1.99601, 0.0709089, -24.9201, -0.124726, 24.9996, 0.0811253, 24.9199, 0.130805, -1.99563, 132.168, 0, 320.885)
+[node name="grass" parent="Pokemons" instance=ExtResource("6_0ngam")]
+transform = Transform3D(-1.99601, 0.0709089, -24.9201, -0.124726, 24.9996, 0.0811253, 24.9199, 0.130805, -1.99563, 132.168, 5, 320.885)
 
 [connection signal="timeout" from="vfx_explosion_orange/VFX_Timer" to="." method="_on_vfx_timer_timeout"]

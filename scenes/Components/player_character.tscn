@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://cswhjm2etf4na"]
+
+[ext_resource type="Script" path="res://scripts/player_character.gd" id="1_nv6fe"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0swid"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_42hu4"]
+albedo_color = Color(0, 0.574786, 0.539494, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7b2ms"]
+size = Vector3(0.5, 0.5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ngbsu"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t4yk8"]
+height = 1.23499
+
+[node name="PlayerCharacter" type="CharacterBody3D" node_paths=PackedStringArray("camera")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.530244, 0)
+script = ExtResource("1_nv6fe")
+camera = NodePath("Camera_Controller/Camera_Target/Camera3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_0swid")
+surface_material_override/0 = SubResource("StandardMaterial3D_42hu4")
+
+[node name="eyes" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.444033, -0.351182)
+mesh = SubResource("BoxMesh_7b2ms")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ngbsu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.07047e-05, 0.12021, 0)
+shape = SubResource("CapsuleShape3D_t4yk8")
+
+[node name="Camera_Controller" type="Node3D" parent="."]
+top_level = true
+
+[node name="Camera_Target" type="Node3D" parent="Camera_Controller"]
+transform = Transform3D(1, 0, 0, 0, 0.931056, 0.364877, 0, -0.364877, 0.931056, 0, 3.5, 5)
+
+[node name="Camera3D" type="Camera3D" parent="Camera_Controller/Camera_Target"]
+current = true

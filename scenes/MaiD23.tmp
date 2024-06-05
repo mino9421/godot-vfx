@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx7if3p5tems1"]
+
+[ext_resource type="PackedScene" uid="uid://elm733rvjp6b" path="res://scenes/Components/player_character.tscn" id="1_o07qu"]
+[ext_resource type="PackedScene" uid="uid://cidmtj6g1kcd1" path="res://scenes/Components/third_person_camera.tscn" id="2_2yxvp"]
+
+[node name="Main" type="Node"]
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("1_o07qu")]
+
+[node name="ThirdPersonCamera" parent="." instance=ExtResource("2_2yxvp")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.800177, 0.264885, -0.538101, 0.00222584, 0.89587, 0.444311, 0.59976, -0.356725, 0.716265, -4.49894, 3.6981, 6.00185)

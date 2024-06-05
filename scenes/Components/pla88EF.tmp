@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://elm733rvjp6b"]
+
+[ext_resource type="Script" path="res://scenes/Components/player_input.gd" id="1_62x20"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4bt2x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oumv4"]
+size = Vector3(1, 1.99146, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0lbl3"]
+albedo_color = Color(1, 0.151344, 0.108333, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fqxjt"]
+material = SubResource("StandardMaterial3D_0lbl3")
+size = Vector3(0.25, 0.25, 0.25)
+
+[node name="PlayerCharacter" type="RigidBody3D"]
+script = ExtResource("1_62x20")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_4bt2x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.995, 0, 0, 0, 0.505, 0, 0, 0, 1, 0, -6.16461e-05, 0)
+shape = SubResource("BoxShape3D_oumv4")
+
+[node name="eyes" type="Node3D" parent="."]
+
+[node name="right_eye" type="Node3D" parent="eyes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.823242, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="eyes/right_eye"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.263924, -0.330847, 0.491955)
+mesh = SubResource("BoxMesh_fqxjt")
+
+[node name="left_eye" type="Node3D" parent="eyes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.524969, 0.823242, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="eyes/left_eye"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.249512, -0.330847, 0.491955)
+mesh = SubResource("BoxMesh_fqxjt")

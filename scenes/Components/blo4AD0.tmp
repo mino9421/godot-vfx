@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://binat5svshejk"]
+
+[ext_resource type="Script" path="res://scenes/Components/block.gd" id="1_tni6p"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_s30af"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x6cnb"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xgkuj"]
+
+[node name="Block" type="RigidBody3D"]
+script = ExtResource("1_tni6p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_s30af")
+surface_material_override/0 = SubResource("StandardMaterial3D_x6cnb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_xgkuj")
